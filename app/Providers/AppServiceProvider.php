@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,10 +34,9 @@ class AppServiceProvider extends ServiceProvider
 
         Response::macro('created', function ($data, $message = null) {
             return response()->json([
-                'data' => [
-                    'data' => $data,
-                    'message' => $message,
-                ],
+
+                'data' => $data,
+                'message' => $message,
             ], \Illuminate\Http\Response::HTTP_CREATED);
         });
 
