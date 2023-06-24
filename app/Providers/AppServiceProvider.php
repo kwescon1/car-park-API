@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Response;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +21,32 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+        Response::macro('success', function ($data) {
+            return response()->json([
+                'data' => $data ?: null,
+            ]);
+        });
+
+        Response::macro('created', function ($data, $message = null) {
+            return response()->json([
+                'data' => [
+                    'data' => $data,
+                    'message' => $message,
+                ],
+            ], \Illuminate\Http\Response::HTTP_CREATED);
+        });
+
+        Response::macro('notfound', function ($error) {
+            return response()->json([
+                'error' => $error,
+            ], \Illuminate\Http\Response::HTTP_NOT_FOUND);
+        });
+
+        Response::macro('error', function ($error, $statusCode = \Illuminate\Http\Response::HTTP_INTERNAL_SERVER_ERROR) {
+            return response()->json([
+                'error' => $error,
+            ], $statusCode);
+        });
     }
 }
