@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('logout', \App\Http\Controllers\Api\v1\Auth\LogoutController::class);
     });
 
+    Route::apiResource('vehicles', \App\Http\Controllers\Api\v1\VehicleController::class);
+
 });
 
 Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class)->name('user.register');
