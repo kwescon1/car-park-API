@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('auth/profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'show'])->name('profile.show');
+    Route::put('auth/profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'update'])->name('profile.update');
 });
 
-Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class);
+Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class)->name('user.register');
 
-Route::post('auth/login', \App\Http\Controllers\Api\v1\Auth\LoginController::class);
+Route::post('auth/login', \App\Http\Controllers\Api\v1\Auth\LoginController::class)->name('user.login');
