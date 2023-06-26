@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -60,5 +61,23 @@ class AuthTest extends TestCase
 
         $response->assertStatus(422);
 
+    }
+
+    public function test_logout_user()
+    {
+        $response = $this->postJson('/api/v1/auth/logout');
+
+        //unauthenticated user
+        $response->assertStatus(401);
+
+        //authenticated user
+        $user = User::factory()->create();
+
+        Sanctum::actingAs($user
+        );
+
+        $response = $this->postJson('/api/v1/auth/logout');
+
+        $response->assertStatus(204);
     }
 }
