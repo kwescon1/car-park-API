@@ -20,6 +20,6 @@ class ProfileController extends Controller
 
         auth()->user()->update($validatedData);
 
-        return response()->updated($validatedData);
+        return response()->success($validatedData);
     }
 }
