@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
             ], \Illuminate\Http\Response::HTTP_CREATED);
         });
 
-        Response::macro('updated', function ($data, $message = null) {
+        Response::macro('accepted', function ($data, $message = null) {
             return response()->json([
 
                 'data' => $data,
