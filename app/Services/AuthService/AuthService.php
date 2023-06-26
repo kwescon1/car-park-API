@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
-    public function getUserByEmail($email): ?User
+    public function getUserByEmail(string $email): ?User
     {
 
         return User::whereEmail($email)->first();
     }
 
-    public function verifyUserPassword($password, $userPassword): bool
+    public function verifyUserPassword(string $password, string $userPassword): bool
     {
         return Hash::check($password, $userPassword);
     }
