@@ -28,3 +28,5 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class)->name('user.register');
 
 Route::post('auth/login', \App\Http\Controllers\Api\v1\Auth\LoginController::class)->name('user.login');
+
+Route::apiResource('zones', \App\Http\Controllers\Api\v1\ZoneController::class)->only('index');
