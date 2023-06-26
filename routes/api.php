@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('auth/profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('auth/profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'update'])->name('profile.update');
-    Route::put('auth/password', \App\Http\Controllers\Api\v1\Auth\PasswordUpdateController::class)->name('update.password');
+    Route::prefix('auth')->group(function () {
+        Route::get('profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'show'])->name('profile.show');
+        Route::put('profile', [\App\Http\Controllers\Api\v1\Auth\ProfileController::class, 'update'])->name('profile.update');
+        Route::put('password', \App\Http\Controllers\Api\v1\Auth\PasswordUpdateController::class)->name('update.password');
+        Route::post('logout', \App\Http\Controllers\Api\v1\Auth\LogoutController::class);
+    });
+
 });
 
 Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class)->name('user.register');
