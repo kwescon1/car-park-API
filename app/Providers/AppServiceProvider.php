@@ -26,10 +26,11 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        Response::macro('success', function ($data) {
+        Response::macro('success', function ($data, $message = null, $statusCode = \Illuminate\Http\Response::HTTP_OK) {
             return response()->json([
                 'data' => $data ?: null,
-            ]);
+                'message' => $message ?: null,
+            ], $statusCode);
         });
 
         Response::macro('created', function ($data, $message = null) {
@@ -38,14 +39,6 @@ class AppServiceProvider extends ServiceProvider
                 'data' => $data,
                 'message' => $message,
             ], \Illuminate\Http\Response::HTTP_CREATED);
-        });
-
-        Response::macro('accepted', function ($data, $message = null) {
-            return response()->json([
-
-                'data' => $data,
-                'message' => $message,
-            ], \Illuminate\Http\Response::HTTP_ACCEPTED);
         });
 
         Response::macro('notfound', function ($error) {
