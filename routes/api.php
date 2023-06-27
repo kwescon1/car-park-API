@@ -23,6 +23,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('vehicles', \App\Http\Controllers\Api\v1\VehicleController::class);
 
+    Route::post('parkings/start', [\App\Http\Controllers\Api\v1\ParkingController::class, 'store'])->name('parking.store');
+
+    Route::get('parkings/{parking}', [\App\Http\Controllers\Api\v1\ParkingController::class, 'show'])->name('parkings.show');
+
+    Route::put('parkings/{parking}', [\App\Http\Controllers\Api\v1\ParkingController::class, 'update'])->name('parkings.update');
+
 });
 
 Route::post('auth/register', \App\Http\Controllers\Api\v1\Auth\RegisterController::class)->name('user.register');
