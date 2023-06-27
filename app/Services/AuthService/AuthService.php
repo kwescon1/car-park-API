@@ -5,7 +5,7 @@ namespace App\Services\AuthService;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class AuthService
+class AuthService implements AuthServiceInterface
 {
     public function getUserByEmail(string $email): ?User
     {

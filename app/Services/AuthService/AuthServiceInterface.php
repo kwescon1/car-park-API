@@ -8,5 +8,5 @@ interface AuthServiceInterface
 {
     public function getUserByEmail(string $email): ?User;
 
-    public function verifyPassword(string $password, string $userPassword): bool;
+    public function verifyUserPassword(string $password, string $userPassword): bool;
 }
