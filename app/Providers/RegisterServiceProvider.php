@@ -13,6 +13,7 @@ class RegisterServiceProvider extends ServiceProvider
     {
         //
         $this->app->bind(\App\Services\AuthService\AuthServiceInterface::class, \App\Services\AuthService\AuthService::class);
+        $this->app->bind(\App\Services\ParkingService\ParkingServiceInterface::class, \App\Services\ParkingService\ParkingService::class);
     }
 
     /**
