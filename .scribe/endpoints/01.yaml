@@ -1,0 +1,256 @@
+name: Vehicles
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/vehicles
+    metadata:
+      groupName: Vehicles
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get All User Vehicles'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '"data": [{"id": 1,"plate_number": "1234_AC"},{"id": 2,"plate_number": "1234_AC"}],"message": null}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer aVEkb16d5gvhfZeaD863Pc4'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/vehicles
+    metadata:
+      groupName: Vehicles
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a New Vehicle'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      plate_number:
+        name: plate_number
+        description: 'The plate number of the vehicle.'
+        required: true
+        example: nihil
+        type: string
+        custom: []
+    cleanBodyParameters:
+      plate_number: nihil
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: '{"data": {"id": 5,"plate_number": "1234_ACs"},"message": null}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message": "The plate number has already been taken.","errors": {"plate_number": ["The plate number has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3akVPZv1ebg645DdE8fac6h'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/vehicles/{id}'
+    metadata:
+      groupName: Vehicles
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show User Vehicle Details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle.'
+        required: true
+        example: 18
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 18
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data": {"id": 1,"plate_number": "1234_AC"},"message": null}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer gPa3EDvbhd1f6ek8Vc54Z6a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/vehicles/{id}'
+    metadata:
+      groupName: Vehicles
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Vehicle Details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      plate_number:
+        name: plate_number
+        description: 'The plate number of the vehicle.'
+        required: true
+        example: unde
+        type: string
+        custom: []
+    cleanBodyParameters:
+      plate_number: unde
+    fileParameters: []
+    responses:
+      -
+        status: 202
+        content: '{"data": {"id": 1,"plate_number": "1234_ACss"},"message": "Vehicle updated successfully"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message": "The plate number has already been taken.","errors": {"plate_number": ["The plate number has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ve5D4Vk68aZ1gPdcE3f6ahb'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/vehicles/{id}'
+    metadata:
+      groupName: Vehicles
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Vehicle Details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle.'
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 10
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer EPd51kgVZvhca3eDf646b8a'
+    controller: null
+    method: null
+    route: null
+    custom: []

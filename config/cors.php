@@ -29,6 +29,9 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    /**
+     * Also, one more thing that I will change in the Laravel config for the API to be consumed by future Vue/React or mobile apps, is allow to login with credentials.
+     */
+    'supports_credentials' => true, // default value is false
 
 ];
