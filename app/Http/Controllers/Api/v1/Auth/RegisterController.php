@@ -7,10 +7,26 @@ use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 
+/**
+ * @group Authentication
+ */
 class RegisterController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Register User
+     *
+     * Register a new user with the provided information.
+     *
+     * @bodyParams  string  $name The name of the user.
+     * @bodyParams  string  $email The email address of the user.
+     * @bodyParams  string  $password The password for the user's account.
+     * @bodyParams  string  $password_confirmation The confirmation of the user's password.
+     *
+     * @return \Illuminate\Http\Response Returns the response containing the authentication token
+     *
+     * @respone 201 {"data": {"access_token": "7|7Hzz14i9T48bcnj65qCSYnEZALcmbBcJVX7c1WF7"},"message": null}
+     *
+     * @response 422 {"message": "The name field is required. (and 2 more errors)","errors": {"name": ["The name field is required."],"email": ["The email has already been taken."],"password": ["The password field confirmation does not match."]}}
      */
     public function __invoke(RegisterUserRequest $request)
     {

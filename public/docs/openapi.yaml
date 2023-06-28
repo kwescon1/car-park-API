@@ -1,0 +1,723 @@
+openapi: 3.0.3
+info:
+  title: LaraPark
+  description: 'The Laravel Car Parking API is designed to simplify the management of parking facilities, automate parking processes, and provide seamless integration with other systems. This documentation will guide you through the available endpoints, request formats, response structures, and authentication mechanisms.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/auth/profile:
+    get:
+      summary: 'Show User Details'
+      operationId: showUserDetails
+      description: "This endpoint retrieves the details of the authenticated user.\n\nIt returns the user's name and email as a response"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: kwesi
+                    email: kwescon@gmail.coms
+                  message: null
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: kwesi
+                      email:
+                        type: string
+                        example: kwescon@gmail.coms
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Authentication
+    put:
+      summary: 'Update User Profile'
+      operationId: updateUserProfile
+      description: "This endpoint allows the authenticated user to update their profile information.\nThe request should include the updated values for the name and email fields.\nIf the update is successful, the updated profile data will be returned in the response.\nIf validation fails, a 422 Unprocessable Entity status code will be returned."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: kwesis
+                    email: kwescon@gmail.coms
+                  message: null
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: kwesis
+                      email:
+                        type: string
+                        example: kwescon@gmail.coms
+                  message:
+                    type: string
+                    example: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email has already been taken.'
+                  errors:
+                    email:
+                      - 'The email has already been taken.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email has already been taken.'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email has already been taken.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The updated name of the user.'
+                  example: corporis
+                email:
+                  type: string
+                  description: 'The updated email of the user.'
+                  example: kirlin.angel@example.net
+              required:
+                - name
+                - email
+  /api/v1/auth/password:
+    put:
+      summary: 'Update Password'
+      operationId: updatePassword
+      description: "This endpoint allows the authenticated user to update their password.\nThe request should include the current password, new password, and password confirmation.\nIf the update is successful, a 204 No Content response will be returned.\nIf validation fails or the current password is incorrect, a 422 Unprocessable Entity status code will be returned."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The current password is incorrect'
+                  errors:
+                    current_password:
+                      - 'The current password is incorrect'
+                properties:
+                  message:
+                    type: string
+                    example: 'The current password is incorrect'
+                  errors:
+                    type: object
+                    properties:
+                      current_password:
+                        type: array
+                        example:
+                          - 'The current password is incorrect'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: 'The current password of the user.'
+                  example: nulla
+                password:
+                  type: string
+                  description: 'The new password of the user.'
+                  example: '>_d(2nc$^Gh'
+                password_confirmation:
+                  type: string
+                  description: 'The confirmation of the new password.'
+                  example: sed
+              required:
+                - current_password
+                - password
+                - password_confirmation
+  /api/v1/auth/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: "This endpoint allows users to log out from the application.After a successful logout, the user's session will be terminated,and they will no longer have access to protected resources"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Authentication
+  /api/v1/auth/register:
+    post:
+      summary: 'Register User'
+      operationId: registerUser
+      description: 'Register a new user with the provided information.'
+      parameters: []
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                    email:
+                      - 'The email has already been taken.'
+                    password:
+                      - 'The password field confirmation does not match.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email has already been taken.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field confirmation does not match.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: cg
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: yveum@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: delectus
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: 'Login User'
+      operationId: loginUser
+      description: "Authenticate the user with the provided email and password.\n\nThis method allows users to log in to the system by verifying their credentials.It accepts the user's email and password as parameters and performs authenticationusing the provided credentials. If the credentials are valid, the user is grantedaccess to the system and an authentication token is generated for subsequent requests."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    access_token: 5|LbZnhjamKqR1igkHTnsq74nNtbm7By7n5GGHnK4e
+                  message: 'User successfully logged in.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
+                        example: 5|LbZnhjamKqR1igkHTnsq74nNtbm7By7n5GGHnK4e
+                  message:
+                    type: string
+                    example: 'User successfully logged in.'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The provided credentials are incorrect.'
+                  errors:
+                    email:
+                      - 'The provided credentials are incorrect.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The provided credentials are incorrect.'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The provided credentials are incorrect.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: vonrueden.cristobal@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: eos
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/parkings/start:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parkings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vehicle_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                zone_id:
+                  type: integer
+                  description: ''
+                  example: 10
+              required:
+                - vehicle_id
+                - zone_id
+      security: []
+  '/api/v1/parkings/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parkings
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Parkings
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the parking.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+  /api/v1/vehicles:
+    get:
+      summary: 'Get All User Vehicles'
+      operationId: getAllUserVehicles
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '"data": [{"id": 1,"plate_number": "1234_AC"},{"id": 2,"plate_number": "1234_AC"}],"message": null}'
+      tags:
+        - Vehicles
+    post:
+      summary: 'Create a New Vehicle'
+      operationId: createANewVehicle
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 5
+                    plate_number: 1234_ACs
+                  message: null
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 5
+                      plate_number:
+                        type: string
+                        example: 1234_ACs
+                  message:
+                    type: string
+                    example: null
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The plate number has already been taken.'
+                  errors:
+                    plate_number:
+                      - 'The plate number has already been taken.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The plate number has already been taken.'
+                  errors:
+                    type: object
+                    properties:
+                      plate_number:
+                        type: array
+                        example:
+                          - 'The plate number has already been taken.'
+                        items:
+                          type: string
+      tags:
+        - Vehicles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plate_number:
+                  type: string
+                  description: 'The plate number of the vehicle.'
+                  example: et
+              required:
+                - plate_number
+  '/api/v1/vehicles/{id}':
+    get:
+      summary: 'Show User Vehicle Details'
+      operationId: showUserVehicleDetails
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    plate_number: 1234_AC
+                  message: null
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      plate_number:
+                        type: string
+                        example: 1234_AC
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Vehicles
+    put:
+      summary: 'Update Vehicle Details'
+      operationId: updateVehicleDetails
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        202:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    plate_number: 1234_ACss
+                  message: 'Vehicle updated successfully'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      plate_number:
+                        type: string
+                        example: 1234_ACss
+                  message:
+                    type: string
+                    example: 'Vehicle updated successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The plate number has already been taken.'
+                  errors:
+                    plate_number:
+                      - 'The plate number has already been taken.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The plate number has already been taken.'
+                  errors:
+                    type: object
+                    properties:
+                      plate_number:
+                        type: array
+                        example:
+                          - 'The plate number has already been taken.'
+                        items:
+                          type: string
+      tags:
+        - Vehicles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plate_number:
+                  type: string
+                  description: 'The plate number of the vehicle.'
+                  example: minus
+              required:
+                - plate_number
+    delete:
+      summary: 'Delete Vehicle Details'
+      operationId: deleteVehicleDetails
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {TOKEN}'
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Vehicles
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the vehicle.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  /api/v1/zones:
+    get:
+      summary: 'Get All Zones'
+      operationId: getAllZones
+      description: "This endpoint retrieves all the zones available in the system.\nIt returns a collection of Zone resources containing information about each zone.\nThe response will have a 200 OK status code on success."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'Green Zone'
+                      price_per_hour: 100
+                  message: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Green Zone'
+                        price_per_hour: 100
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'Green Zone'
+                        price_per_hour:
+                          type: integer
+                          example: 100
+                  message:
+                    type: string
+                    example: null
+      tags:
+        - Zones
+      security: []
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Parkings
+    description: ''
+  -
+    name: Vehicles
+    description: ''
+  -
+    name: Zones
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []
