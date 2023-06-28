@@ -22,8 +22,6 @@ class RegisterController extends Controller
      * @bodyParams  string  $password The password for the user's account.
      * @bodyParams  string  $password_confirmation The confirmation of the user's password.
      *
-     * @return \Illuminate\Http\Response Returns the response containing the authentication token
-     *
      * @respone 201 {"data": {"access_token": "7|7Hzz14i9T48bcnj65qCSYnEZALcmbBcJVX7c1WF7"},"message": null}
      *
      * @response 422 {"message": "The name field is required. (and 2 more errors)","errors": {"name": ["The name field is required."],"email": ["The email has already been taken."],"password": ["The password field confirmation does not match."]}}

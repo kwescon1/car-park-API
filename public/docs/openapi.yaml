@@ -120,11 +120,11 @@ paths:
                 name:
                   type: string
                   description: 'The updated name of the user.'
-                  example: corporis
+                  example: voluptatem
                 email:
                   type: string
                   description: 'The updated email of the user.'
-                  example: kirlin.angel@example.net
+                  example: ellie36@example.net
               required:
                 - name
                 - email
@@ -180,15 +180,15 @@ paths:
                 current_password:
                   type: string
                   description: 'The current password of the user.'
-                  example: nulla
+                  example: ut
                 password:
                   type: string
                   description: 'The new password of the user.'
-                  example: '>_d(2nc$^Gh'
+                  example: 'nb9(lon5kLfH>]H'
                 password_confirmation:
                   type: string
                   description: 'The confirmation of the new password.'
-                  example: sed
+                  example: aut
               required:
                 - current_password
                 - password
@@ -270,15 +270,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: cg
+                  example: rcehdxfdscaekmsovhfj
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: yveum@example.org
+                  example: little.dorris@example.net
                 password:
                   type: string
                   description: ''
-                  example: delectus
+                  example: dolor
               required:
                 - name
                 - email
@@ -347,11 +347,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: vonrueden.cristobal@example.net
+                  example: kerluke.ebony@example.net
                 password:
                   type: string
                   description: ''
-                  example: eos
+                  example: hic
               required:
                 - email
                 - password
@@ -375,11 +375,11 @@ paths:
                 vehicle_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 4
                 zone_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 2
               required:
                 - vehicle_id
                 - zone_id
@@ -408,7 +408,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the parking.'
-        example: 4
+        example: 9
         required: true
         schema:
           type: integer
@@ -508,7 +508,7 @@ paths:
                 plate_number:
                   type: string
                   description: 'The plate number of the vehicle.'
-                  example: et
+                  example: nihil
               required:
                 - plate_number
   '/api/v1/vehicles/{id}':
@@ -624,7 +624,7 @@ paths:
                 plate_number:
                   type: string
                   description: 'The plate number of the vehicle.'
-                  example: minus
+                  example: unde
               required:
                 - plate_number
     delete:
@@ -649,7 +649,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle.'
-        example: 13
+        example: 18
         required: true
         schema:
           type: integer

@@ -39,7 +39,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Df4dcek56Vbh8Zav3gE1P6a'
+      - 'Bearer aPveVcEkf6h34gdb6aZ81D5'
     controller: null
     method: null
     route: null
@@ -74,19 +74,19 @@ endpoints:
         name: name
         description: 'The updated name of the user.'
         required: true
-        example: corporis
+        example: voluptatem
         type: string
         custom: []
       email:
         name: email
         description: 'The updated email of the user.'
         required: true
-        example: kirlin.angel@example.net
+        example: ellie36@example.net
         type: string
         custom: []
     cleanBodyParameters:
-      name: corporis
-      email: kirlin.angel@example.net
+      name: voluptatem
+      email: ellie36@example.net
     fileParameters: []
     responses:
       -
@@ -105,7 +105,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6va3D6EV5bhgPZ1ce8ad4kf'
+      - 'Bearer PD18ka35vgcb6eZaEV6d4fh'
     controller: null
     method: null
     route: null
@@ -140,27 +140,27 @@ endpoints:
         name: current_password
         description: 'The current password of the user.'
         required: true
-        example: nulla
+        example: ut
         type: string
         custom: []
       password:
         name: password
         description: 'The new password of the user.'
         required: true
-        example: '>_d(2nc$^Gh'
+        example: 'nb9(lon5kLfH>]H'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'The confirmation of the new password.'
         required: true
-        example: sed
+        example: aut
         type: string
         custom: []
     cleanBodyParameters:
-      current_password: nulla
-      password: '>_d(2nc$^Gh'
-      password_confirmation: sed
+      current_password: ut
+      password: 'nb9(lon5kLfH>]H'
+      password_confirmation: aut
     fileParameters: []
     responses:
       -
@@ -179,7 +179,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Pa6Ehfd3c8gVb5D4eaZv6k1'
+      - 'Bearer k58vV1fac4eE6adgbh63DZP'
     controller: null
     method: null
     route: null
@@ -219,7 +219,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer aak683he5DEZVv6fcbdgP14'
+      - 'Bearer D4P6kdaE5cg3f6av8ebh1ZV'
     controller: null
     method: null
     route: null
@@ -249,27 +249,27 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: cg
+        example: rcehdxfdscaekmsovhfj
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: yveum@example.org
+        example: little.dorris@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: delectus
+        example: dolor
         type: string
         custom: []
     cleanBodyParameters:
-      name: cg
-      email: yveum@example.org
-      password: delectus
+      name: rcehdxfdscaekmsovhfj
+      email: little.dorris@example.net
+      password: dolor
     fileParameters: []
     responses:
       -
@@ -312,19 +312,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: vonrueden.cristobal@example.net
+        example: kerluke.ebony@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: eos
+        example: hic
         type: string
         custom: []
     cleanBodyParameters:
-      email: vonrueden.cristobal@example.net
-      password: eos
+      email: kerluke.ebony@example.net
+      password: hic
     fileParameters: []
     responses:
       -

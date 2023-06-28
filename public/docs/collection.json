@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "LaraPark",
-        "_postman_id": "614e350f-b06b-4bd2-aaaf-b7d56dc57f00",
+        "_postman_id": "7d3efd9f-2730-465f-ab6d-d5ba996f5b59",
         "description": "The Laravel Car Parking API is designed to simplify the management of parking facilities, automate parking processes, and provide seamless integration with other systems. This documentation will guide you through the available endpoints, request formats, response structures, and authentication mechanisms.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -73,7 +73,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"corporis\",\"email\":\"kirlin.angel@example.net\"}"
+                            "raw": "{\"name\":\"voluptatem\",\"email\":\"ellie36@example.net\"}"
                         },
                         "description": "This endpoint allows the authenticated user to update their profile information.\nThe request should include the updated values for the name and email fields.\nIf the update is successful, the updated profile data will be returned in the response.\nIf validation fails, a 422 Unprocessable Entity status code will be returned."
                     },
@@ -114,7 +114,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_password\":\"nulla\",\"password\":\">_d(2nc$^Gh\",\"password_confirmation\":\"sed\"}"
+                            "raw": "{\"current_password\":\"ut\",\"password\":\"nb9(lon5kLfH>]H\",\"password_confirmation\":\"aut\"}"
                         },
                         "description": "This endpoint allows the authenticated user to update their password.\nThe request should include the current password, new password, and password confirmation.\nIf the update is successful, a 204 No Content response will be returned.\nIf validation fails or the current password is incorrect, a 422 Unprocessable Entity status code will be returned."
                     },
@@ -187,7 +187,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"cg\",\"email\":\"yveum@example.org\",\"password\":\"delectus\"}"
+                            "raw": "{\"name\":\"rcehdxfdscaekmsovhfj\",\"email\":\"little.dorris@example.net\",\"password\":\"dolor\"}"
                         },
                         "description": "Register a new user with the provided information.",
                         "auth": {
@@ -225,7 +225,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"vonrueden.cristobal@example.net\",\"password\":\"eos\"}"
+                            "raw": "{\"email\":\"kerluke.ebony@example.net\",\"password\":\"hic\"}"
                         },
                         "description": "Authenticate the user with the provided email and password.\n\nThis method allows users to log in to the system by verifying their credentials.It accepts the user's email and password as parameters and performs authenticationusing the provided credentials. If the credentials are valid, the user is grantedaccess to the system and an authentication token is generated for subsequent requests.",
                         "auth": {
@@ -275,7 +275,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"vehicle_id\":8,\"zone_id\":10}"
+                            "raw": "{\"vehicle_id\":4,\"zone_id\":2}"
                         },
                         "description": "",
                         "auth": {
@@ -296,7 +296,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "4",
+                                    "value": "9",
                                     "description": "The ID of the parking."
                                 }
                             ]
@@ -332,7 +332,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "20",
                                     "description": "The ID of the parking."
                                 }
                             ]
@@ -416,7 +416,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"plate_number\":\"et\"}"
+                            "raw": "{\"plate_number\":\"nihil\"}"
                         },
                         "description": ""
                     },
@@ -447,7 +447,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "18",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -487,7 +487,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "1",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -505,7 +505,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"plate_number\":\"minus\"}"
+                            "raw": "{\"plate_number\":\"unde\"}"
                         },
                         "description": ""
                     },
@@ -536,7 +536,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "10",
                                     "description": "The ID of the vehicle."
                                 }
                             ]

@@ -36,7 +36,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P16EV36kfZadvD8hae4bc5g'
+      - 'Bearer aVEkb16d5gvhfZeaD863Pc4'
     controller: null
     method: null
     route: null
@@ -67,11 +67,11 @@ endpoints:
         name: plate_number
         description: 'The plate number of the vehicle.'
         required: true
-        example: et
+        example: nihil
         type: string
         custom: []
     cleanBodyParameters:
-      plate_number: et
+      plate_number: nihil
     fileParameters: []
     responses:
       -
@@ -90,7 +90,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer d3vZEk8gfchae5Pa16V6bD4'
+      - 'Bearer 3akVPZv1ebg645DdE8fac6h'
     controller: null
     method: null
     route: null
@@ -117,11 +117,11 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 13
+        example: 18
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -138,7 +138,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 18kVa64bf3dcPhavZ5EDe6g'
+      - 'Bearer gPa3EDvbhd1f6ek8Vc54Z6a'
     controller: null
     method: null
     route: null
@@ -166,11 +166,11 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 2
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -178,11 +178,11 @@ endpoints:
         name: plate_number
         description: 'The plate number of the vehicle.'
         required: true
-        example: minus
+        example: unde
         type: string
         custom: []
     cleanBodyParameters:
-      plate_number: minus
+      plate_number: unde
     fileParameters: []
     responses:
       -
@@ -201,7 +201,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gaVdDPh8Zvk3E6b4a1f5c6e'
+      - 'Bearer ve5D4Vk68aZ1gPdcE3f6ahb'
     controller: null
     method: null
     route: null
@@ -228,11 +228,11 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 14
+        example: 10
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 14
+      id: 10
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -249,7 +249,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Phkc56ve31adVa84gb6EZDf'
+      - 'Bearer EPd51kgVZvhca3eDf646b8a'
     controller: null
     method: null
     route: null
